@@ -1,0 +1,15 @@
+{
+    // This file is used to compile the for cjs and esm (see package.json build scripts). It should exclude all test files.
+    "extends": "./tsconfig.base.json",
+    "include": ["wallet-deputy"],
+    "exclude": [
+      "wallet-deputy/**/*.test.ts",
+      "wallet-deputy/**/*.test-d.ts",
+      "wallet-deputy/**/*.bench.ts",
+      "wallet-deputy/_test"
+    ],
+    "compilerOptions": {
+    "sourceMap": true,
+    "rootDir": "./wallet-deputy"
+  }
+}
