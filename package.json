@@ -6,18 +6,21 @@
     "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.28.1",
     "@types/bun": "1.2.3",
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.7",
+    "rimraf": "^5.0.10"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "workspaces": ["wallet-deputy"],
+  "workspaces": [
+    "wallet-deputy"
+  ],
   "scripts": {
-    "build": "bun clean && bun build:cjs && bun build:esm && bun build:types",
+    "build": "bun run clean && bun run build:cjs && bun run build:esm && bun run build:types",
     "build:esm": "tsc --project ./tsconfig.build.json --outDir ./wallet-deputy/_esm && printf '{\"type\": \"module\",\"sideEffects\":false}' > ./wallet-deputy/_esm/package.json",
     "build:cjs": "tsc --project ./tsconfig.build.json --module commonjs --moduleResolution node10 --outDir ./wallet-deputy/_cjs --removeComments --verbatimModuleSyntax false && printf '{\"type\":\"commonjs\"}' > ./wallet-deputy/_cjs/package.json",
     "build:types": "tsc --project ./tsconfig.build.json --declarationDir ./wallet-deputy/_types --emitDeclarationOnly --declaration --declarationMap",
-    "changeset:prepublish": "bun version:update && bun build",
+    "changeset:prepublish": "bun version:update && bun run build",
     "changeset:publish": "bun changeset:prepublish && changeset publish",
     "changeset:version": "changeset version && bun version:update && bun format",
     "check": "biome check . --fix --unsafe",

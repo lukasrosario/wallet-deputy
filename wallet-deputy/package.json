@@ -1,0 +1,37 @@
+{
+  "name": "wallet-deputy",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./_cjs/index.js",
+  "module": "./_esm/index.js",
+  "types": "./_types/index.d.ts",
+  "typings": "./_types/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "*",
+    "!**/_test/**",
+    "!**/*.tsbuildinfo",
+    "!tsconfig.build.json",
+    "!jsr.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./_types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "yup": "^1.6.1",
+    "viem": "^2.23.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.28.1",
+    "@types/bun": "1.2.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.4.0"
+  }
+}
